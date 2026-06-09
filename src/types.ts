@@ -6,15 +6,30 @@ export type BadgeColor = 'navy' | 'orange' | 'teal' | 'yellow' | 'slate';
 export type CourseTone = 'orange' | 'navy' | 'teal' | 'yellow';
 
 export interface CourseItem {
+  id: string;
   title: string;
+  stack?: string;
   blurb: string;
   icon: string;
   tone: CourseTone;
   level: string;
   levelColor: BadgeColor;
   age: string;
-  lessons: string | number;
+  sessions: number;
+  hours: number;
+  price: number;
   cat: string;
+  syllabus: string[];
+}
+
+export interface Bundle {
+  id: string;
+  name: string;
+  courses: string;
+  separate: number;
+  price: number;
+  icon: string;
+  featured?: boolean;
 }
 
 export interface HowStep {
@@ -39,17 +54,6 @@ export interface ProjectItem {
   tone: CourseTone;
 }
 
-export interface PricingPlan {
-  name: string;
-  price: string;
-  period: string;
-  blurb: string;
-  features: string[];
-  cta: string;
-  icon: string;
-  featured?: boolean;
-}
-
 export interface FooterCol {
   h: string;
   links: string[];
@@ -58,6 +62,7 @@ export interface FooterCol {
 export interface Copy {
   nav: string[];
   cta: { book: string; demo: string };
+  units: { ages: string; sessions: string; hours: string; currency: string };
   hero: {
     pill1: string;
     pill2: string;
@@ -75,11 +80,24 @@ export interface Copy {
     sub: string;
     filters: string[];
     cta: string;
+    syllabusLabel: string;
     items: CourseItem[];
   };
   how: { eyebrow: string; title: string; steps: HowStep[] };
   projects: { eyebrow: string; title: string; sub: string; items: ProjectItem[] };
-  pricing: { eyebrow: string; title: string; sub: string; note: string; plans: PricingPlan[] };
+  pricing: {
+    eyebrow: string;
+    title: string;
+    sub: string;
+    separateLabel: string;
+    saveLabel: string;
+    popular: string;
+    bundles: Bundle[];
+    featuresTitle: string;
+    features: string[];
+    totalLabel: string;
+    totalValue: string;
+  };
   proof: { eyebrow: string; title: string; sub: string; quotes: Quote[] };
   final: { title: string; sub: string; secondary: string };
   footer: { blurb: string; cols: FooterCol[]; rights: string };

@@ -7,7 +7,7 @@ import type { Copy, Dir } from '../types';
 export function HowItWorks({ t, dir }: { t: Copy; dir: Dir }) {
   const font = dir === 'rtl' ? 'font-ar' : 'font-en';
   return (
-    <section className="py-[var(--section-y)] bg-cloud">
+    <section id="how" className="py-[var(--section-y)] bg-cloud scroll-mt-[84px]">
       <Container>
         <SectionHead eyebrow={t.how.eyebrow} title={t.how.title} center dir={dir} />
         <div className="grid grid-cols-3 gap-[22px] mt-11 max-[820px]:grid-cols-1">

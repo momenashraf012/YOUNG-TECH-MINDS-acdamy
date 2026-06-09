@@ -91,7 +91,7 @@ export function BookingModal({ t, lang, dir, open, onClose }: BookingModalProps)
             />
             <div className="grid grid-cols-2 gap-3.5">
               <Input label={t.modal.fChild} placeholder={t.modal.pChild} />
-              <Select label={t.modal.fAge} options={['6–8', '8–10', '10–12', '12–15', '15–18']} />
+              <Select label={t.modal.fAge} options={['8–10', '10–12', '12–14', '14–16']} />
             </div>
             <Checkbox
               checked={consent}

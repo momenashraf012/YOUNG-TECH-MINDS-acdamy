@@ -41,6 +41,7 @@ export function FinalCTA({ t, lang, dir, onBook }: FinalCTAProps) {
             <Button
               variant="ghost"
               size="lg"
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.5)' }}
             >
               {t.final.secondary}

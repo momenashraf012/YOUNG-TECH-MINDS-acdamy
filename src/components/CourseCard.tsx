@@ -7,14 +7,15 @@ import type { BadgeColor, CourseTone } from '../types';
 
 interface CourseCardProps {
   title: string;
+  stack?: string;
   blurb?: string;
-  image?: string;
   icon?: ReactNode;
   iconTone?: CourseTone;
   level?: string;
   levelColor?: BadgeColor;
-  age?: string;
-  lessons?: string | number;
+  ageText?: string;
+  metaText?: string;
+  priceText?: string;
   ctaLabel?: string;
   onCta?: () => void;
   rtl?: boolean;
@@ -29,44 +30,48 @@ const toneCls: Record<CourseTone, string> = {
 
 export function CourseCard({
   title,
+  stack,
   blurb,
-  image,
   icon,
   iconTone = 'orange',
-  level = 'Beginner',
+  level = 'Level 1',
   levelColor = 'teal',
-  age,
-  lessons,
-  ctaLabel = 'View course',
+  ageText,
+  metaText,
+  priceText,
+  ctaLabel = 'View details',
   onCta,
   rtl = false,
 }: CourseCardProps) {
   const font = rtl ? 'font-ar' : 'font-en';
   return (
     <Card interactive padding={0} className="flex flex-col" dir={rtl ? 'rtl' : undefined}>
-      <div className={cn('relative h-[132px] flex items-center justify-center', toneCls[iconTone])}>
-        {image ? (
-          <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        ) : (
-          <span className="inline-flex h-11 w-11 text-white">{icon}</span>
-        )}
+      <button
+        type="button"
+        onClick={onCta}
+        className={cn('relative h-[132px] flex flex-col items-center justify-center text-left', toneCls[iconTone])}
+        aria-label={title}
+      >
+        <span className="inline-flex h-11 w-11 text-white">{icon}</span>
+        {stack ? <span className={cn(font, 'mt-2 text-[12px] font-semibold text-white/85')}>{stack}</span> : null}
         <span className="absolute top-3 start-3">
           <Badge color={levelColor} variant="solid">
             {level}
           </Badge>
         </span>
-      </div>
+      </button>
       <div className="flex flex-1 flex-col gap-[10px] p-5">
         <h3 className={cn(font, 'text-[19px] font-bold text-navy leading-[1.3] m-0')}>{title}</h3>
-        {blurb ? (
-          <p className={cn(font, 'text-sm text-slate leading-[1.55] m-0')}>{blurb}</p>
-        ) : null}
-        <div className="mt-auto flex gap-4 pt-[6px] font-en text-[13px] text-slate">
-          {age ? <span className="inline-flex items-center gap-[5px]">Ages {age}</span> : null}
-          {lessons ? (
-            <span className="inline-flex items-center gap-[5px]">{lessons} lessons</span>
-          ) : null}
+        {blurb ? <p className={cn(font, 'text-sm text-slate leading-[1.55] m-0')}>{blurb}</p> : null}
+        <div className={cn(font, 'mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-[6px] text-[13px] text-slate')}>
+          {ageText ? <span>{ageText}</span> : null}
+          {metaText ? <span>· {metaText}</span> : null}
         </div>
+        {priceText ? (
+          <div className={cn(font, 'flex items-baseline gap-1.5 pt-1')}>
+            <span className="text-[22px] font-extrabold text-navy">{priceText}</span>
+          </div>
+        ) : null}
         <Button variant="primary" size="sm" fullWidth onClick={onCta} className="mt-[6px]">
           {ctaLabel}
         </Button>

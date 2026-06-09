@@ -173,6 +173,13 @@
   }
 }
 
+/* Smooth in-page anchor scrolling (disabled for reduced-motion users) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Focus visibility */
 :where(a, button, input, select, textarea):focus-visible {
   outline: 2px solid var(--color-focus);
