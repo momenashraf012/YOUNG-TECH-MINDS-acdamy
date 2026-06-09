@@ -53,7 +53,12 @@ export function Hero({ t, lang, dir, onBook }: HeroProps) {
             >
               {t.cta.book}
             </Button>
-            <Button variant="ghost" size="lg" iconLeft={<Icon name="play" size={20} />}>
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              iconLeft={<Icon name="play" size={20} />}
+            >
               {t.cta.demo}
             </Button>
           </div>
