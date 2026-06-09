@@ -1,4 +1,5 @@
 {
+  "name": "young-tech-minds-academy",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
