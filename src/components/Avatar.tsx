@@ -13,15 +13,30 @@ interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
 
 const sizes: Record<SizeKey, number> = { xs: 28, sm: 36, md: 48, lg: 64, xl: 88 };
 
-export function Avatar({ src, name = '', size = 'md', ring = false, square = false, className, style, ...rest }: AvatarProps) {
+export function Avatar({
+  src,
+  name = '',
+  size = 'md',
+  ring = false,
+  square = false,
+  className,
+  style,
+  ...rest
+}: AvatarProps) {
   const px = typeof size === 'number' ? size : sizes[size];
-  const initials = name.trim().split(/\s+/).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+  const initials = name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
   return (
     <span
       className={cn(
         'inline-flex items-center justify-center flex-none overflow-hidden bg-navy-tint text-navy font-en font-bold',
         square ? 'rounded-md' : 'rounded-pill',
-        className,
+        className
       )}
       style={{
         width: px,

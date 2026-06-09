@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.git
+.cache
+.next
+.nuxt
+.turbo
+*.min.js
+*.min.css

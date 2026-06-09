@@ -16,7 +16,11 @@ const sizeCls: Record<Size, string> = {
   md: 'h-[42px] w-[42px] rounded-md',
   lg: 'h-[50px] w-[50px] rounded-md',
 };
-const iconBox: Record<Size, string> = { sm: 'h-4 w-4', md: 'h-[19px] w-[19px]', lg: 'h-[22px] w-[22px]' };
+const iconBox: Record<Size, string> = {
+  sm: 'h-4 w-4',
+  md: 'h-[19px] w-[19px]',
+  lg: 'h-[22px] w-[22px]',
+};
 
 const variantCls: Record<Variant, string> = {
   primary: 'bg-orange text-white border border-transparent hover:bg-orange-hover',
@@ -45,7 +49,7 @@ export function IconButton({
         'disabled:opacity-45 disabled:cursor-not-allowed',
         sizeCls[size],
         variantCls[variant],
-        className,
+        className
       )}
       {...rest}
     >

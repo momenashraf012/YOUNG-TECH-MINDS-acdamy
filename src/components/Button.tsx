@@ -20,8 +20,10 @@ const sizeCls: Record<Size, string> = {
 const iconBox: Record<Size, string> = { sm: 'h-4 w-4', md: 'h-[18px] w-[18px]', lg: 'h-5 w-5' };
 
 const variantCls: Record<Variant, string> = {
-  primary: 'bg-orange text-white border border-transparent shadow-cta hover:bg-orange-hover active:bg-orange-press',
-  secondary: 'bg-navy text-white border border-transparent shadow-sm hover:bg-navy-600 active:bg-indigo',
+  primary:
+    'bg-orange text-white border border-transparent shadow-cta hover:bg-orange-hover active:bg-orange-press',
+  secondary:
+    'bg-navy text-white border border-transparent shadow-sm hover:bg-navy-600 active:bg-indigo',
   ghost: 'bg-transparent text-navy border-[1.5px] border-navy hover:bg-navy-tint active:bg-cloud-2',
 };
 
@@ -48,7 +50,7 @@ export function Button({
         fullWidth ? 'flex w-full' : 'inline-flex',
         sizeCls[size],
         variantCls[variant],
-        className,
+        className
       )}
       {...rest}
     >

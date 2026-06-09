@@ -31,6 +31,25 @@ export interface Quote {
   accent: string;
 }
 
+export interface ProjectItem {
+  title: string;
+  maker: string;
+  tag: string;
+  icon: string;
+  tone: CourseTone;
+}
+
+export interface PricingPlan {
+  name: string;
+  price: string;
+  period: string;
+  blurb: string;
+  features: string[];
+  cta: string;
+  icon: string;
+  featured?: boolean;
+}
+
 export interface FooterCol {
   h: string;
   links: string[];
@@ -59,6 +78,8 @@ export interface Copy {
     items: CourseItem[];
   };
   how: { eyebrow: string; title: string; steps: HowStep[] };
+  projects: { eyebrow: string; title: string; sub: string; items: ProjectItem[] };
+  pricing: { eyebrow: string; title: string; sub: string; note: string; plans: PricingPlan[] };
   proof: { eyebrow: string; title: string; sub: string; quotes: Quote[] };
   final: { title: string; sub: string; secondary: string };
   footer: { blurb: string; cols: FooterCol[]; rights: string };

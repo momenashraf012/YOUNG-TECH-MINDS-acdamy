@@ -41,8 +41,12 @@ export function BookingModal({ t, lang, dir, open, onClose }: BookingModalProps)
       >
         <div className="bg-gradient-brand px-6 py-[22px] flex items-start justify-between">
           <div>
-            <div className={cn(font, 'text-[13px] font-semibold text-white/85')}>{t.modal.kicker}</div>
-            <div className={cn(font, 'text-[22px] font-extrabold text-white mt-0.5')}>{t.modal.title}</div>
+            <div className={cn(font, 'text-[13px] font-semibold text-white/85')}>
+              {t.modal.kicker}
+            </div>
+            <div className={cn(font, 'text-[22px] font-extrabold text-white mt-0.5')}>
+              {t.modal.title}
+            </div>
           </div>
           <IconButton
             variant="ghost"
@@ -59,7 +63,9 @@ export function BookingModal({ t, lang, dir, open, onClose }: BookingModalProps)
               <Icon name="check" size={32} />
             </div>
             <h3 className={cn(font, 'text-[22px] text-navy mb-2 mt-0')}>{t.modal.successTitle}</h3>
-            <p className={cn(font, 'text-[15px] text-slate leading-[1.6] mb-[22px] mt-0')}>{t.modal.successBody}</p>
+            <p className={cn(font, 'text-[15px] text-slate leading-[1.6] mb-[22px] mt-0')}>
+              {t.modal.successBody}
+            </p>
             <Button variant="primary" fullWidth onClick={onClose}>
               {t.modal.successCta}
             </Button>
@@ -72,14 +78,33 @@ export function BookingModal({ t, lang, dir, open, onClose }: BookingModalProps)
             }}
             className="p-6 flex flex-col gap-4"
           >
-            <Input label={t.modal.fParent} placeholder={t.modal.pParent} icon={<Icon name="user" size={18} />} />
-            <Input label={t.modal.fEmail} type="email" placeholder="you@example.com" icon={<Icon name="mail" size={18} />} />
+            <Input
+              label={t.modal.fParent}
+              placeholder={t.modal.pParent}
+              icon={<Icon name="user" size={18} />}
+            />
+            <Input
+              label={t.modal.fEmail}
+              type="email"
+              placeholder="you@example.com"
+              icon={<Icon name="mail" size={18} />}
+            />
             <div className="grid grid-cols-2 gap-3.5">
               <Input label={t.modal.fChild} placeholder={t.modal.pChild} />
               <Select label={t.modal.fAge} options={['6–8', '8–10', '10–12', '12–15', '15–18']} />
             </div>
-            <Checkbox checked={consent} onChange={(e) => setConsent(e.target.checked)} label={t.modal.consent} />
-            <Button variant="primary" size="lg" fullWidth type="submit" iconRight={dir === 'rtl' ? null : <Icon name="arrow-right" size={20} />}>
+            <Checkbox
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              label={t.modal.consent}
+            />
+            <Button
+              variant="primary"
+              size="lg"
+              fullWidth
+              type="submit"
+              iconRight={dir === 'rtl' ? null : <Icon name="arrow-right" size={20} />}
+            >
               {t.modal.submit}
             </Button>
             <p className={cn(font, 'text-[12.5px] text-slate text-center m-0')}>{t.modal.fine}</p>

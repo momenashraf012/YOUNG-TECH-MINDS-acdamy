@@ -8,7 +8,16 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-export function Input({ label, icon, helper, error, disabled = false, id, className, ...rest }: InputProps) {
+export function Input({
+  label,
+  icon,
+  helper,
+  error,
+  disabled = false,
+  id,
+  className,
+  ...rest
+}: InputProps) {
   const inputId = id || (label ? `ytm-${label.replace(/\s+/g, '-').toLowerCase()}` : undefined);
   return (
     <label htmlFor={inputId} className={cn('flex flex-col gap-1.5 font-en', className)}>
@@ -19,7 +28,7 @@ export function Input({ label, icon, helper, error, disabled = false, id, classN
           'transition-[border-color,box-shadow] duration-200 ease-[var(--ease-standard)]',
           'focus-within:shadow-[0_0_0_3px_rgba(5,2,79,0.08)]',
           disabled ? 'bg-cloud' : 'bg-white',
-          error ? 'border-orange' : 'border-line focus-within:border-navy',
+          error ? 'border-orange' : 'border-line focus-within:border-navy'
         )}
       >
         {icon ? <span className="inline-flex h-[18px] w-[18px] text-slate">{icon}</span> : null}

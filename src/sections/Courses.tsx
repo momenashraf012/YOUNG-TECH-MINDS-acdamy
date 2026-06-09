@@ -18,13 +18,20 @@ export function Courses({ t, lang, dir, onBook }: CoursesProps) {
     setFilter(t.courses.filters[0]);
   }, [lang, t.courses.filters]);
 
-  const visible = t.courses.items.filter((c) => filter === t.courses.filters[0] || c.cat === filter);
+  const visible = t.courses.items.filter(
+    (c) => filter === t.courses.filters[0] || c.cat === filter
+  );
 
   return (
     <section className="py-[var(--section-y)]">
       <Container>
         <div className="flex justify-between items-end flex-wrap gap-5 mb-7">
-          <SectionHead eyebrow={t.courses.eyebrow} title={t.courses.title} sub={t.courses.sub} dir={dir} />
+          <SectionHead
+            eyebrow={t.courses.eyebrow}
+            title={t.courses.title}
+            sub={t.courses.sub}
+            dir={dir}
+          />
         </div>
         <div className="flex flex-wrap gap-[9px] mb-[26px]">
           {t.courses.filters.map((f) => (

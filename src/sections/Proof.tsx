@@ -12,9 +12,18 @@ export function Proof({ t, dir }: { t: Copy; dir: Dir }) {
       <Container>
         <div className="grid grid-cols-[0.9fr_1.1fr] gap-[clamp(28px,4vw,56px)] items-center max-[820px]:grid-cols-1">
           <div>
-            <SectionHead eyebrow={t.proof.eyebrow} title={t.proof.title} sub={t.proof.sub} dir={dir} />
+            <SectionHead
+              eyebrow={t.proof.eyebrow}
+              title={t.proof.title}
+              sub={t.proof.sub}
+              dir={dir}
+            />
             <div className="rounded-xl overflow-hidden mt-[26px] shadow-lg border-[6px] border-white">
-              <img src="/assets/photos/three-kids.png" alt="Students building projects" className="w-full block" />
+              <img
+                src="/assets/photos/three-kids.png"
+                alt="Students building projects"
+                className="w-full block"
+              />
             </div>
           </div>
           <div className="flex flex-col gap-4">
@@ -25,7 +34,9 @@ export function Proof({ t, dir }: { t: Copy; dir: Dir }) {
                     <Icon key={s} name="star" size={15} fill="var(--color-yellow)" />
                   ))}
                 </div>
-                <p className={cn(font, 'text-[16px] leading-[1.6] text-ink mb-4 mt-0')}>“{q.text}”</p>
+                <p className={cn(font, 'text-[16px] leading-[1.6] text-ink mb-4 mt-0')}>
+                  “{q.text}”
+                </p>
                 <div className="flex items-center gap-3">
                   <Avatar name={q.name} size="sm" />
                   <div>

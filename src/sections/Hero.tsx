@@ -19,23 +19,38 @@ export function Hero({ t, lang, dir, onBook }: HeroProps) {
       <Container className="grid grid-cols-[1.05fr_0.95fr] gap-[clamp(28px,4vw,56px)] items-center max-[820px]:grid-cols-1">
         <div>
           <span className="inline-flex items-center gap-2 ps-2 pe-3 py-1.5 bg-orange-tint rounded-pill mb-5">
-            <Badge color="orange" variant="solid">{t.hero.pill1}</Badge>
-            <span className={cn(font, 'text-[13px] font-semibold text-orange-press')}>{t.hero.pill2}</span>
+            <Badge color="orange" variant="solid">
+              {t.hero.pill1}
+            </Badge>
+            <span className={cn(font, 'text-[13px] font-semibold text-orange-press')}>
+              {t.hero.pill2}
+            </span>
           </span>
           <h1
             className={cn(
               font,
               'text-[clamp(36px,5vw,58px)] leading-[1.08] text-navy m-0',
-              lang === 'ar' ? 'tracking-normal' : 'tracking-[-0.025em]',
+              lang === 'ar' ? 'tracking-normal' : 'tracking-[-0.025em]'
             )}
           >
             {t.hero.title} <span className="text-orange">{t.hero.titleAccent}</span>
           </h1>
-          <p className={cn(font, 'text-[19px] text-slate mt-5 max-w-[520px]', lang === 'ar' ? 'leading-[1.7]' : 'leading-[1.6]')}>
+          <p
+            className={cn(
+              font,
+              'text-[19px] text-slate mt-5 max-w-[520px]',
+              lang === 'ar' ? 'leading-[1.7]' : 'leading-[1.6]'
+            )}
+          >
             {t.hero.sub}
           </p>
           <div className="flex flex-wrap gap-3.5 mt-[30px]">
-            <Button variant="primary" size="lg" onClick={onBook} iconRight={dir === 'rtl' ? null : <Icon name="arrow-right" size={20} />}>
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={onBook}
+              iconRight={dir === 'rtl' ? null : <Icon name="arrow-right" size={20} />}
+            >
               {t.cta.book}
             </Button>
             <Button variant="ghost" size="lg" iconLeft={<Icon name="play" size={20} />}>
@@ -56,14 +71,20 @@ export function Hero({ t, lang, dir, onBook }: HeroProps) {
 
         <div className="relative">
           <div className="rounded-2xl overflow-hidden shadow-xl border-[6px] border-white aspect-[4/3.4]">
-            <img src="/assets/photos/mentor-group.png" alt="Kids learning to code with a mentor" className="h-full w-full object-cover block" />
+            <img
+              src="/assets/photos/mentor-group.png"
+              alt="Kids learning to code with a mentor"
+              className="h-full w-full object-cover block"
+            />
           </div>
           <div className="absolute start-[-18px] bottom-[26px] bg-white rounded-lg shadow-lg px-4 py-[14px] flex items-center gap-3">
             <span className="h-[42px] w-[42px] rounded-[12px] bg-gradient-warm inline-flex items-center justify-center text-white">
               <Icon name="rocket" size={22} />
             </span>
             <div>
-              <div className="font-en font-extrabold text-[18px] text-navy leading-none">{t.hero.floatNum}</div>
+              <div className="font-en font-extrabold text-[18px] text-navy leading-none">
+                {t.hero.floatNum}
+              </div>
               <div className={cn(font, 'text-xs text-slate mt-[3px]')}>{t.hero.floatLabel}</div>
             </div>
           </div>

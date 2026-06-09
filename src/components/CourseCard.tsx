@@ -51,17 +51,25 @@ export function CourseCard({
           <span className="inline-flex h-11 w-11 text-white">{icon}</span>
         )}
         <span className="absolute top-3 start-3">
-          <Badge color={levelColor} variant="solid">{level}</Badge>
+          <Badge color={levelColor} variant="solid">
+            {level}
+          </Badge>
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-[10px] p-5">
         <h3 className={cn(font, 'text-[19px] font-bold text-navy leading-[1.3] m-0')}>{title}</h3>
-        {blurb ? <p className={cn(font, 'text-sm text-slate leading-[1.55] m-0')}>{blurb}</p> : null}
+        {blurb ? (
+          <p className={cn(font, 'text-sm text-slate leading-[1.55] m-0')}>{blurb}</p>
+        ) : null}
         <div className="mt-auto flex gap-4 pt-[6px] font-en text-[13px] text-slate">
           {age ? <span className="inline-flex items-center gap-[5px]">Ages {age}</span> : null}
-          {lessons ? <span className="inline-flex items-center gap-[5px]">{lessons} lessons</span> : null}
+          {lessons ? (
+            <span className="inline-flex items-center gap-[5px]">{lessons} lessons</span>
+          ) : null}
         </div>
-        <Button variant="primary" size="sm" fullWidth onClick={onCta} className="mt-[6px]">{ctaLabel}</Button>
+        <Button variant="primary" size="sm" fullWidth onClick={onCta} className="mt-[6px]">
+          {ctaLabel}
+        </Button>
       </div>
     </Card>
   );

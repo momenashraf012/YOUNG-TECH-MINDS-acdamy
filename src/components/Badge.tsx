@@ -23,14 +23,21 @@ const softCls: Record<BadgeColor, string> = {
   slate: 'bg-cloud text-slate',
 };
 
-export function Badge({ children, color = 'navy', variant = 'soft', icon, className, ...rest }: BadgeProps) {
+export function Badge({
+  children,
+  color = 'navy',
+  variant = 'soft',
+  icon,
+  className,
+  ...rest
+}: BadgeProps) {
   return (
     <span
       className={cn(
         'inline-flex items-center gap-[5px] font-en font-semibold text-xs leading-none tracking-[0.01em]',
         'px-[10px] py-[5px] rounded-pill',
         variant === 'solid' ? solidCls[color] : softCls[color],
-        className,
+        className
       )}
       {...rest}
     >

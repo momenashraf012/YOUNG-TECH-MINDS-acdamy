@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { COPY } from './copy';
 import type { Lang } from './types';
 import { Header } from './sections/Header';
@@ -10,6 +10,7 @@ import { Proof } from './sections/Proof';
 import { FinalCTA } from './sections/FinalCTA';
 import { Footer } from './sections/Footer';
 import { BookingModal } from './components/BookingModal';
+import { IntroSplash } from './components/IntroSplash';
 
 export function App() {
   const [lang, setLang] = useState<Lang>('en');
@@ -20,7 +21,13 @@ export function App() {
 
   return (
     <div dir={dir} className={lang === 'ar' ? 'font-ar' : 'font-en'}>
-      <Header t={t} lang={lang} onToggleLang={() => setLang(lang === 'en' ? 'ar' : 'en')} onBook={openBook} />
+      <IntroSplash />
+      <Header
+        t={t}
+        lang={lang}
+        onToggleLang={() => setLang(lang === 'en' ? 'ar' : 'en')}
+        onBook={openBook}
+      />
       <Hero t={t} lang={lang} dir={dir} onBook={openBook} />
       <TrustBar t={t} />
       <Courses t={t} lang={lang} dir={dir} onBook={openBook} />

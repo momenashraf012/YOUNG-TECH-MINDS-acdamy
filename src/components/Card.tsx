@@ -9,19 +9,29 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   interactive?: boolean;
 }
 
-export function Card({ children, accent, padding = 24, interactive = false, className, style, ...rest }: CardProps) {
+export function Card({
+  children,
+  accent,
+  padding = 24,
+  interactive = false,
+  className,
+  style,
+  ...rest
+}: CardProps) {
   return (
     <div
       className={cn(
         'relative overflow-hidden bg-white border border-line rounded-lg shadow-card',
         'transition-[box-shadow,transform] duration-200 ease-[var(--ease-standard)]',
         interactive && 'cursor-pointer hover:shadow-md hover:-translate-y-[3px]',
-        className,
+        className
       )}
       style={{ padding, ...style }}
       {...rest}
     >
-      {accent ? <span className="absolute top-0 start-0 h-1 w-full" style={{ background: accent }} /> : null}
+      {accent ? (
+        <span className="absolute top-0 start-0 h-1 w-full" style={{ background: accent }} />
+      ) : null}
       {children}
     </div>
   );
