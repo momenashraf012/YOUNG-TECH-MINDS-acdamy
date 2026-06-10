@@ -10,6 +10,7 @@ interface CourseCardProps {
   stack?: string;
   blurb?: string;
   icon?: ReactNode;
+  image?: string;
   iconTone?: CourseTone;
   level?: string;
   levelColor?: BadgeColor;
@@ -33,6 +34,7 @@ export function CourseCard({
   stack,
   blurb,
   icon,
+  image,
   iconTone = 'orange',
   level = 'Level 1',
   levelColor = 'teal',
@@ -49,11 +51,30 @@ export function CourseCard({
       <button
         type="button"
         onClick={onCta}
-        className={cn('relative h-[132px] flex flex-col items-center justify-center text-left', toneCls[iconTone])}
+        className={cn(
+          'relative flex flex-col items-center justify-center overflow-hidden text-left',
+          image ? 'h-[190px]' : 'h-[132px]',
+          image ? 'bg-navy' : toneCls[iconTone]
+        )}
         aria-label={title}
       >
-        <span className="inline-flex h-11 w-11 text-white">{icon}</span>
-        {stack ? <span className={cn(font, 'mt-2 text-[12px] font-semibold text-white/85')}>{stack}</span> : null}
+        {image ? (
+          <img
+            src={image}
+            alt={title}
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <>
+            <span className="inline-flex h-11 w-11 text-white">{icon}</span>
+            {stack ? (
+              <span className={cn(font, 'mt-2 text-[12px] font-semibold text-white/85')}>
+                {stack}
+              </span>
+            ) : null}
+          </>
+        )}
         <span className="absolute top-3 start-3">
           <Badge color={levelColor} variant="solid">
             {level}
@@ -62,8 +83,15 @@ export function CourseCard({
       </button>
       <div className="flex flex-1 flex-col gap-[10px] p-5">
         <h3 className={cn(font, 'text-[19px] font-bold text-navy leading-[1.3] m-0')}>{title}</h3>
-        {blurb ? <p className={cn(font, 'text-sm text-slate leading-[1.55] m-0')}>{blurb}</p> : null}
-        <div className={cn(font, 'mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-[6px] text-[13px] text-slate')}>
+        {blurb ? (
+          <p className={cn(font, 'text-sm text-slate leading-[1.55] m-0')}>{blurb}</p>
+        ) : null}
+        <div
+          className={cn(
+            font,
+            'mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-[6px] text-[13px] text-slate'
+          )}
+        >
           {ageText ? <span>{ageText}</span> : null}
           {metaText ? <span>· {metaText}</span> : null}
         </div>

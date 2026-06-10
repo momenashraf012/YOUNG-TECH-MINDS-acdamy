@@ -27,10 +27,22 @@ export function Projects({ t, dir }: { t: Copy; dir: Dir }) {
           {t.projects.items.map((p, i) => (
             <Card key={i} padding={0} className="overflow-hidden">
               <div
-                className="h-[132px] flex items-center justify-center text-white relative"
-                style={{ background: toneBg[p.tone] }}
+                className={cn(
+                  'flex items-center justify-center text-white relative overflow-hidden',
+                  p.image ? 'h-[210px]' : 'h-[132px]'
+                )}
+                style={p.image ? undefined : { background: toneBg[p.tone] }}
               >
-                <Icon name={p.icon} size={46} />
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Icon name={p.icon} size={46} />
+                )}
                 <span
                   className={cn(
                     font,

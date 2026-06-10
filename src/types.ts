@@ -11,6 +11,7 @@ export interface CourseItem {
   stack?: string;
   blurb: string;
   icon: string;
+  image?: string;
   tone: CourseTone;
   level: string;
   levelColor: BadgeColor;
@@ -51,6 +52,7 @@ export interface ProjectItem {
   maker: string;
   tag: string;
   icon: string;
+  image?: string;
   tone: CourseTone;
 }
 

@@ -11,14 +11,21 @@ import { Pricing } from './sections/Pricing';
 import { Proof } from './sections/Proof';
 import { FinalCTA } from './sections/FinalCTA';
 import { Footer } from './sections/Footer';
-import { BookingModal } from './components/BookingModal';
+
+const WHATSAPP_NUMBER = '201558896384';
 
 export function App() {
-  const [lang, setLang] = useState<Lang>('en');
-  const [modal, setModal] = useState(false);
+  const [lang, setLang] = useState<Lang>('ar');
   const t = COPY[lang];
   const dir = lang === 'ar' ? 'rtl' : 'ltr';
-  const openBook = () => setModal(true);
+  const openBook = () => {
+    const msg =
+      lang === 'ar'
+        ? 'السلام عليكم، حابب أحجز حصة تجريبية مجانية 🙂'
+        : "Hello! I'd like to book a free trial class 🙂";
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   // Keep the document <html> lang/dir in sync for SEO and screen readers.
   useEffect(() => {
@@ -28,7 +35,12 @@ export function App() {
 
   return (
     <div dir={dir} className={lang === 'ar' ? 'font-ar' : 'font-en'}>
-      <Header t={t} lang={lang} onToggleLang={() => setLang(lang === 'en' ? 'ar' : 'en')} onBook={openBook} />
+      <Header
+        t={t}
+        lang={lang}
+        onToggleLang={() => setLang(lang === 'en' ? 'ar' : 'en')}
+        onBook={openBook}
+      />
       <Hero t={t} lang={lang} dir={dir} onBook={openBook} />
       <TrustBar t={t} />
       <Courses t={t} lang={lang} dir={dir} onBook={openBook} />
@@ -38,7 +50,6 @@ export function App() {
       <Pricing t={t} lang={lang} dir={dir} onBook={openBook} />
       <FinalCTA t={t} lang={lang} dir={dir} onBook={openBook} />
       <Footer t={t} lang={lang} />
-      <BookingModal t={t} lang={lang} dir={dir} open={modal} onClose={() => setModal(false)} />
     </div>
   );
 }

@@ -22,13 +22,20 @@ export function Courses({ t, lang, dir, onBook }: CoursesProps) {
   }, [lang, t.courses.filters]);
 
   const u = t.units;
-  const visible = t.courses.items.filter((c) => filter === t.courses.filters[0] || c.cat === filter);
+  const visible = t.courses.items.filter(
+    (c) => filter === t.courses.filters[0] || c.cat === filter
+  );
 
   return (
     <section id="courses" className="py-[var(--section-y)] scroll-mt-[84px]">
       <Container>
         <div className="flex justify-between items-end flex-wrap gap-5 mb-7">
-          <SectionHead eyebrow={t.courses.eyebrow} title={t.courses.title} sub={t.courses.sub} dir={dir} />
+          <SectionHead
+            eyebrow={t.courses.eyebrow}
+            title={t.courses.title}
+            sub={t.courses.sub}
+            dir={dir}
+          />
         </div>
         <div className="flex flex-wrap gap-[9px] mb-[26px]">
           {t.courses.filters.map((f) => (
@@ -45,6 +52,7 @@ export function Courses({ t, lang, dir, onBook }: CoursesProps) {
               stack={c.stack}
               blurb={c.blurb}
               icon={<Icon name={c.icon} size={44} />}
+              image={c.image}
               iconTone={c.tone}
               level={c.level}
               levelColor={c.levelColor}
