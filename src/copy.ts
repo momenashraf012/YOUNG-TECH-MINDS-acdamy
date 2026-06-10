@@ -290,7 +290,7 @@ export const COPY: Record<Lang, Copy> = {
         {
           text: 'My daughter went from playing games to building her own in six weeks. The mentors are incredible.',
           name: 'Sarah M.',
-          role: 'Parent of Lina, 9',
+          role: 'Parent of Lina, 15',
           accent: 'var(--color-orange)',
         },
         {
@@ -355,7 +355,7 @@ export const COPY: Record<Lang, Copy> = {
     ],
     courses: {
       eyebrow: 'مسارات الأكاديمية',
-      title: 'مسار من أول لبنة حتى الذكاء الاصطناعي',
+      title: 'رحلتك من أول خطوة لحد ما تبقى صانع تكنولوجيا ذكي',
       sub: 'أربعة مستويات متدرّجة — كل مستوى ينتهي بمشروع تخرّج حقيقي يملكه طفلك.',
       filters: ['الكل', 'برمجة', 'ذكاء اصطناعي', 'ويب'],
       cta: 'عرض التفاصيل',
@@ -571,7 +571,7 @@ export const COPY: Record<Lang, Copy> = {
     pricing: {
       eyebrow: 'الباقات والأسعار',
       title: 'وفّر أكثر مع الباقات',
-      sub: 'اشترك في كورس واحد، أو اختر باقة ووفّر. بدون عقود، وألغِ في أي وقت.',
+      sub: 'اشترك في كورس واحد، أو اختر باقة ووفّر. بدون عقود.',
       separateLabel: 'السعر المنفصل',
       saveLabel: 'بتوفّر',
       popular: 'الأكثر شعبية',
@@ -622,7 +622,7 @@ export const COPY: Record<Lang, Copy> = {
         {
           text: 'انتقلت ابنتي من اللعب إلى بناء ألعابها خلال ٦ أسابيع. المدرّبون رائعون.',
           name: 'سارة م.',
-          role: 'والدة لينا، ٩ سنوات',
+          role: 'والدة لينا، ١٥ سنة',
           accent: 'var(--color-orange)',
         },
         {
